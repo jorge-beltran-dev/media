@@ -16,7 +16,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
-App::import('Lib', 'Media.MimeType');
+App::uses('MimeType', 'Media.Libs');
 
 /**
  * Media Class
@@ -227,9 +227,7 @@ class Media extends Object {
 		$class = $name . 'Media';
 
 		if (!class_exists($class)) {
-			App::import('Lib', 'Media.' . $class, array(
-				'file' => 'media' . DS . strtolower($name) . '.php'
-			));
+			App::uses($class, 'Media.Libs/Media');
 		}
 
 		$Object = new $class($file, $mimeType);
@@ -290,6 +288,7 @@ class Media extends Object {
  * @return mixed
  */
 	function store($file, $overwrite = false, $guessExtension = true) {
+		App::uses('File', 'Utility');
 		$File = new File($file);
 
 		if ($overwrite) {
@@ -493,9 +492,10 @@ class MediaAdapterCollection extends Object {
 	function attach($adapter, $config) {
 		$class = $adapter . 'MediaAdapter';
 		$file = 'media' . DS . 'adapter' . DS . Inflector::underscore($adapter) . '.php';
+		App::uses($class, 'Media.Libs/Media/Adapter');
+		if (!class_exists($class)) {
 
-		if (!class_exists($class)
-		&& !App::import('Lib', 'Media.' . $class, array('file' => $file))) {
+			App::load($class);
 			$message = "MediaAdapterCollection::attach() - Adapter `{$adapter}` not found!";
 			$this->__errors[] = $message;
 			return false;
@@ -519,7 +519,7 @@ class MediaAdapterCollection extends Object {
 	}
 
 /**
- * Calls a method of an adapter providing it
+ bs/Media/Adapter* Calls a method of an adapter providing it
  * Loads and initiates the adapter if necessary
  *
  * @param string $method

@@ -17,7 +17,7 @@
  * @link       http://github.com/davidpersson/media
  * @deprecated
  */
-uses('file');
+//uses('file');
 
 /**
  * Mime Type Class
