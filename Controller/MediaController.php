@@ -341,8 +341,8 @@ class MediaController extends MediaAppController {
 	}
 
 	function _setup() {
-		if (file_exists(CONFIGS . 'media.php')) {
-			include(CONFIGS . 'media.php');
+		if (file_exists(APP . 'Config' . DS . 'media.php')) {
+			include(APP . 'Config' . DS . 'media.php');
 		} else {
 			include(dirname(dirname(__FILE__)) . DS . 'Config' . DS . 'media.php');
 		}
