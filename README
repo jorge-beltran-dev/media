@@ -27,3 +27,17 @@
 
   For more information please visit the media wiki at
   http://github.com/davidpersson/media/wikis
+
+
+
+
+HACE FALTA:
+
+Config/core.php
+Configure::write('Mime.magic', array('db' => '/usr/share/file/magic'));
+
+
+Extensión fileinfo
+
+
+Extensión imagick
