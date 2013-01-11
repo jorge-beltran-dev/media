@@ -45,6 +45,10 @@ Config/routes.php (Antes de CakePlugin::routes())
 	);
 
 
+Config/bootstrap.php
+CakePlugin::loadAll();
+
+
 Config/core.php
 Configure::write('Mime.magic', array('db' => '/usr/share/file/magic'));
 
