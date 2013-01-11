@@ -33,6 +33,18 @@
 
 HACE FALTA:
 
+Config/routes.php (Antes de CakePlugin::routes())
+/**
+ * Connect media types to media plugin
+ */
+	Router::connect(
+        '/:mediaType/*',
+        array('plugin' => 'media', 'controller' => 'media', 'action' => 'serve'),
+        //array('controller' => 'media', 'action' => 'serve'),
+        array('mediaType' => '(aud|doc|gen|ico|img|txt|vid)')
+	);
+
+
 Config/core.php
 Configure::write('Mime.magic', array('db' => '/usr/share/file/magic'));
 
