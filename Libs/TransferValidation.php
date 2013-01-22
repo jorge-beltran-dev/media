@@ -16,8 +16,11 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
-App::import('Core', 'Validation');
-App::import('Lib', 'Media.MediaValidation');
+//App::import('Core', 'Validation');
+//App::import('Lib', 'Media.MediaValidation');
+//App::uses('Validation', 'Media.Core');
+App::uses('Validation', 'Utility');
+App::uses('MediaValidation', 'Media.Libs');
 
 /**
  * Transfer Validation Class
@@ -49,7 +52,7 @@ class TransferValidation extends MediaValidation {
  * @param mixed $check Array or string
  * @return boolean
  */
-	function blank($check) {
+	static function blank($check) {
 		if (empty($check)) {
 			return true;
 		}
@@ -97,7 +100,7 @@ class TransferValidation extends MediaValidation {
  * @param string string to check
  * @param array options for allowing different url parts currently only scheme is supported
  */
-	function url($check, $options = array()) {
+	static function url($check, $options = array()) {
 		if (!is_string($check)) {
 			return false;
 		}
