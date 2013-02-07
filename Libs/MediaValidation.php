@@ -16,7 +16,9 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
-App::import('Core', 'Validation');
+
+//App::import('Core', 'Validation');
+App::uses('Validation', 'Utility');
 
 /**
  * Media Validation Class
@@ -65,7 +67,7 @@ class MediaValidation extends Validation {
  * 	false allows no extension
  * @return boolean
  */
-	function extension($check, $deny = false, $allow = true) {
+	static function extension($check, $deny = false, $allow = true) {
 		if (!is_string($check) || !preg_match('/^[\w0-9]+(\.[\w0-9]+)?$/', $check)) {
 			return false;
 		}

@@ -16,8 +16,10 @@
  * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  * @link       http://github.com/davidpersson/media
  */
-App::import('Lib', 'Media.MediaValidation');
-App::import('Lib', 'Media.TransferValidation');
+//App::import('Lib', 'Media.MediaValidation');
+//App::import('Lib', 'Media.TransferValidation');
+App::uses('MediaValidation', 'Media.Libs');
+App::uses('TransferValidation', 'Media.Libs');
 require_once 'Mime/Type.php';
 //Mime_Type::config('Magic', array('adapter' => 'Fileinfo'));
 
