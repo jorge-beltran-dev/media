@@ -112,6 +112,7 @@ class MediaController extends MediaAppController {
  * @access public
  */
 	function beforeFilter() {
+		parent::beforeFilter();
 		$this->_setup();
 
 		if (!$this->settings['enabled']) {
