@@ -40,7 +40,7 @@ class MediaValidation extends Validation {
  * 	false allows no MIME type
  * @return boolean
  */
-	function mimeType($check, $deny = false, $allow = true) {
+	static function mimeType($check, $deny = false, $allow = true) {
 		if (!is_string($check) || !preg_match('/^[-\w.\+]+\/[-\w.\+]+$/', $check)) {
 			return false;
 		}

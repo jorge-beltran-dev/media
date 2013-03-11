@@ -21,7 +21,7 @@
 App::uses('MediaValidation', 'Media.Libs');
 App::uses('TransferValidation', 'Media.Libs');
 require_once 'Mime/Type.php';
-//Mime_Type::config('Magic', array('adapter' => 'Fileinfo'));
+Mime_Type::config('Magic', array('adapter' => 'Fileinfo'));
 
 /**
  * Transfer Behavior Class
@@ -762,6 +762,8 @@ class TransferBehavior extends ModelBehavior {
 			$filename = substr($basename, 0, isset($extension) ? - (strlen($extension) + 1) : 0);
 		}
 		$newFilename = $filename;
+
+		App::uses('Folder', 'Utility');
 
 		$Folder = new Folder($dirname);
 		$names = $Folder->find($filename . '.*');

@@ -12,7 +12,7 @@
  * @link       http://github.com/davidpersson/mm
  */
 
-require_once 'Mime/Type/Magic/Adapter.php';
+require_once dirname(__FILE__) . '/../Adapter.php';
 
 /**
  * This adapter wraps the functions of the fileinfo extension.

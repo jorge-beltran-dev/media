@@ -124,7 +124,8 @@ class MediaController extends MediaAppController {
 				'base' => $this->base
 			)));
 		}
-		$this->__target = WWW_ROOT . ltrim($this->params->url, '/');
+		$url = str_replace('%2C', ',', $this->params->url);
+		$this->__target = WWW_ROOT . ltrim($url, '/');
 	}
 
 /**
@@ -184,6 +185,7 @@ class MediaController extends MediaAppController {
 				return $this->_serve();
 			}
 		}
+		$url = str_replace('%2C', ',', $url);
 		if (!strpos($url, ',')) {
 			if ($this->_linkOriginal($url, $this->settings['store'])) {
 				return $this->_serve();
@@ -326,7 +328,7 @@ class MediaController extends MediaAppController {
  * @access protected
  */
 	function _serve() {
-	
+		
 		if (!file_exists($this->__target)) {
 			$this->_link();
 		}

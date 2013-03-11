@@ -84,9 +84,9 @@ class Mime_Type {
 		}
 
 		$class = "Mime_Type_{$type}_Adapter_{$config['adapter']}";
-		$file = "Mime/Type/{$type}/Adapter/{$config['adapter']}.php";
+		$file = "/Type/{$type}/Adapter/{$config['adapter']}.php";
 
-		require_once $file;
+		require_once dirname(__FILE__) . $file;
 
 		$type[0] = strtolower($type[0]);
 		self::${$type} = new $class($config);
@@ -186,7 +186,7 @@ class Mime_Type {
 		} else {
 			return;
 		}
-
+		
 		$magicMatch = self::$magic->analyze($handle);
 		$magicMatch = empty($magicMatch) ? array() : array($magicMatch);
 
