@@ -101,7 +101,7 @@ class TransferBehavior extends ModelBehavior {
  * @param array $settings See defaultSettings for configuration options
  * @return void
  */
-	function setup(&$Model, $settings = array()) {
+	function setup(Model $Model, $settings = array()) {
 		$settings = (array)$settings;
 
 		if (isset($settings['destinationFile'])) {
@@ -142,7 +142,7 @@ class TransferBehavior extends ModelBehavior {
  * @param Model $Model
  * @return boolean
  */
-	function beforeValidate(&$Model) {
+	function beforeValidate(Model $Model) {
 		if (!isset($Model->data[$Model->alias]['file'])) {
 			return true;
 		}
@@ -168,7 +168,7 @@ class TransferBehavior extends ModelBehavior {
  * @param Model $Model
  * @return boolean
  */
-	function beforeSave(&$Model) {
+	function beforeSave(Model $Model) {
 		if (!isset($Model->data[$Model->alias]['file'])) {
 			return true;
 		}

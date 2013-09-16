@@ -252,7 +252,7 @@ class MediaValidation extends Validation {
  * @param boolean $strict Enable checking for actual existence of file
  * @return boolean
  */
-	function file($check, $strict = true) {
+	static function file($check, $strict = true) {
 		if (!is_string($check)) {
 			return false;
 		}

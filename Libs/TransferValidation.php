@@ -71,7 +71,7 @@ class TransferValidation extends MediaValidation {
  * @param mixed $check
  * @return boolean
  */
-	function fileUpload($check) {
+	static function fileUpload($check) {
 		if (!is_array($check)) {
 			return false;
 		}
@@ -90,7 +90,7 @@ class TransferValidation extends MediaValidation {
  *
  * @param mixed $check
  */
-	function uploadedFile($check) {
+	static function uploadedFile($check) {
 		return MediaValidation::file($check) && is_uploaded_file($check);
 	}
 
