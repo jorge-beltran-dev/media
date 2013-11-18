@@ -142,7 +142,7 @@ class TransferBehavior extends ModelBehavior {
  * @param Model $Model
  * @return boolean
  */
-	function beforeValidate(Model $Model) {
+	function beforeValidate(Model $Model, $options = array()) {
 		if (!isset($Model->data[$Model->alias]['file'])) {
 			return true;
 		}
@@ -168,7 +168,7 @@ class TransferBehavior extends ModelBehavior {
  * @param Model $Model
  * @return boolean
  */
-	function beforeSave(Model $Model) {
+	function beforeSave(Model $Model, $options = array()) {
 		if (!isset($Model->data[$Model->alias]['file'])) {
 			return true;
 		}
